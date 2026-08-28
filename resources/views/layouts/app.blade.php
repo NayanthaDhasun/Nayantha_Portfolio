@@ -54,11 +54,13 @@
 <body x-data="themeManager()" 
       class="bg-theme text-theme antialiased selection:bg-purple-600 selection:text-white relative overflow-x-hidden min-h-screen transition-colors duration-300">
 
-    <!-- Background Grid & Atmospheric Glows -->
-    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
-    <div class="glow-orb-primary -top-40 -left-40"></div>
-    <div class="glow-orb-secondary top-1/3 -right-40"></div>
-    <div class="glow-orb-primary bottom-20 left-1/4"></div>
+    <!-- Background Grid & Atmospheric Glows (Strictly Clipped) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern"></div>
+        <div class="glow-orb-primary -top-40 -left-40"></div>
+        <div class="glow-orb-secondary top-1/3 -right-40"></div>
+        <div class="glow-orb-primary bottom-20 left-1/4"></div>
+    </div>
 
     <!-- Notification Toast if session has status -->
     @if(session('success'))

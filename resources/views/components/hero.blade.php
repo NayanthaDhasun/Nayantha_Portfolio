@@ -1,66 +1,66 @@
-<section id="hero" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+<section id="hero" class="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             
             <!-- Left Content Column -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
                 
                 <!-- Status Pill -->
-                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-badge text-xs font-medium backdrop-blur-md shadow-sm">
-                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 status-pulse"></span>
-                    <span class="text-purple-200">Associate ERP Functional Consultant & Systems Analyst</span>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full glass-badge text-[11px] sm:text-xs font-medium backdrop-blur-md shadow-sm max-w-full">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 status-pulse shrink-0"></span>
+                    <span class="text-purple-200 truncate">Associate ERP Functional Consultant & Systems Analyst</span>
                 </div>
 
                 <!-- Main Name & Headline -->
-                <div class="space-y-3">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15]">
+                <div class="space-y-2 sm:space-y-3">
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.2]">
                         <span class="text-white">Hi, I'm </span>
                         <span class="gradient-text-purple">{{ $profile['name'] }}</span>
                     </h1>
-                    <p class="text-xl sm:text-2xl font-semibold gradient-text-vibrant tracking-tight">
+                    <p class="text-lg sm:text-2xl font-semibold gradient-text-vibrant tracking-tight leading-snug">
                         Transforming Enterprise Workflows into High-Performing ERP Architectures.
                     </p>
                 </div>
 
                 <!-- Sub-copy / Value Proposition -->
-                <p class="text-base sm:text-lg text-purple-200/80 max-w-2xl leading-relaxed">
+                <p class="text-sm sm:text-lg text-purple-200/80 max-w-2xl leading-relaxed mx-auto lg:mx-0">
                     Bridging client business requirements with practical, scalable <span class="text-purple-200 font-semibold">Odoo ERP implementations</span>, financial accounting precision, and cutting-edge <span class="text-purple-200 font-semibold">AI-driven business intelligence</span>.
                 </p>
 
                 <!-- Key Highlights Badges -->
-                <div class="flex flex-wrap gap-2 justify-center lg:justify-start pt-1 text-xs">
-                    <span class="px-3 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
+                <div class="flex flex-wrap gap-1.5 sm:gap-2 justify-center lg:justify-start pt-1 text-[11px] sm:text-xs">
+                    <span class="px-2.5 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
                         <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Odoo Sales, Purchase & Inventory
                     </span>
-                    <span class="px-3 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
+                    <span class="px-2.5 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
                         <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Financial Accounting & Invoicing
                     </span>
-                    <span class="px-3 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
+                    <span class="px-2.5 py-1.5 rounded-lg bg-purple-950/70 border border-purple-500/20 text-purple-300 flex items-center gap-1.5">
                         <i data-lucide="check-circle" class="w-3.5 h-3.5 text-purple-400"></i> BPR & UAT Management
                     </span>
                 </div>
 
-                <!-- Action CTA Buttons -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4 pt-4">
+                <!-- Action CTA Buttons (Full width on mobile, inline on sm+) -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
                     <a href="#contact" 
-                       class="btn-primary px-6 sm:px-7 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-purple-900/30 hover:scale-105 transition-all">
+                       class="btn-primary w-full sm:w-auto px-6 sm:px-7 py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-purple-900/30 hover:scale-105 transition-all">
                         <i data-lucide="calendar" class="w-4 h-4"></i>
                         <span>Book ERP Consultation</span>
                     </a>
                     <a href="#projects" 
-                       class="btn-secondary px-5 sm:px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-all">
+                       class="btn-secondary w-full sm:w-auto px-5 sm:px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 hover:scale-105 transition-all">
                         <i data-lucide="layers" class="w-4 h-4 text-purple-300"></i>
                         <span>View Case Studies</span>
                     </a>
                     <a href="{{ route('portfolio.download-cv') }}" 
-                       class="btn-secondary px-5 py-3.5 rounded-xl font-semibold text-xs sm:text-sm text-purple-200 hover:text-white flex items-center gap-2 border border-purple-500/30 hover:border-purple-400 hover:scale-105 transition-all">
+                       class="btn-secondary w-full sm:w-auto px-5 py-3.5 rounded-xl font-semibold text-xs sm:text-sm text-purple-200 hover:text-white flex items-center justify-center gap-2 border border-purple-500/30 hover:border-purple-400 hover:scale-105 transition-all">
                         <i data-lucide="file-text" class="w-4 h-4 text-purple-400"></i>
                         <span>Download CV (PDF)</span>
                     </a>
                 </div>
 
                 <!-- Contact Micro-bar -->
-                <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-purple-300/70 border-t border-purple-500/10">
+                <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-6 text-xs text-purple-300/80 border-t border-purple-500/10">
                     <a href="mailto:{{ $profile['email'] }}" class="flex items-center gap-1.5 hover:text-purple-200 transition-colors">
                         <i data-lucide="mail" class="w-3.5 h-3.5 text-purple-400"></i>
                         <span>{{ $profile['email'] }}</span>
@@ -84,8 +84,8 @@
             </div>
 
             <!-- Right Column - Visual Avatar & Floating Metric Badges -->
-            <div class="lg:col-span-5 flex justify-center relative">
-                <div class="relative w-72 sm:w-80 lg:w-96">
+            <div class="lg:col-span-5 flex flex-col items-center justify-center relative mt-4 lg:mt-0">
+                <div class="relative w-64 sm:w-80 lg:w-96 mx-auto">
                     
                     <!-- Ambient Backlight Circle -->
                     <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full opacity-30 blur-2xl animate-pulse"></div>
@@ -100,9 +100,9 @@
                         </div>
                     </div>
 
-                    <!-- Floating Badge 1: Experience (Top Left) -->
-                    <div class="absolute -top-4 -left-4 sm:-left-10 glass-panel px-3.5 py-2.5 rounded-2xl border border-purple-400/30 shadow-xl flex items-center gap-2.5 cursor-pointer transform transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:border-purple-300 hover:bg-[#1A0A38]/95 hover:shadow-2xl hover:shadow-purple-500/30 group z-20 whitespace-nowrap">
-                        <div class="w-8 h-8 rounded-xl bg-purple-600/30 text-purple-300 flex items-center justify-center font-bold text-xs transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <!-- Desktop Floating Badge 1: Experience (Top Left - sm+) -->
+                    <div class="hidden sm:flex absolute -top-4 -left-8 glass-panel px-3.5 py-2.5 rounded-2xl border border-purple-400/30 shadow-xl items-center gap-2.5 cursor-pointer transform transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:border-purple-300 hover:bg-[#1A0A38]/95 hover:shadow-2xl hover:shadow-purple-500/30 group z-20 whitespace-nowrap">
+                        <div class="w-8 h-8 rounded-xl bg-purple-600/30 text-purple-300 flex items-center justify-center font-bold text-xs transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shrink-0">
                             <i data-lucide="briefcase" class="w-4 h-4"></i>
                         </div>
                         <div>
@@ -111,9 +111,9 @@
                         </div>
                     </div>
 
-                    <!-- Floating Badge 2: Certified IIBA / PMI (Bottom Left) -->
-                    <div class="absolute -bottom-4 -left-4 sm:-left-10 glass-panel px-3.5 py-2.5 rounded-2xl border border-purple-400/30 shadow-xl flex items-center gap-2.5 cursor-pointer transform transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:border-emerald-400 hover:bg-[#0E1F24]/95 hover:shadow-2xl hover:shadow-emerald-500/30 group z-20 whitespace-nowrap">
-                        <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                    <!-- Desktop Floating Badge 2: Certified IIBA / PMI (Bottom Left - sm+) -->
+                    <div class="hidden sm:flex absolute -bottom-4 -left-8 glass-panel px-3.5 py-2.5 rounded-2xl border border-purple-400/30 shadow-xl items-center gap-2.5 cursor-pointer transform transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:border-emerald-400 hover:bg-[#0E1F24]/95 hover:shadow-2xl hover:shadow-emerald-500/30 group z-20 whitespace-nowrap">
+                        <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shrink-0">
                             <i data-lucide="award" class="w-4 h-4 text-emerald-400"></i>
                         </div>
                         <div>
@@ -122,8 +122,8 @@
                         </div>
                     </div>
 
-                    <!-- Floating Badge 3: Education (Right Side) -->
-                    <div class="absolute top-1/2 -translate-y-1/2 left-[82%] sm:left-[80%] lg:left-[85%] glass-panel px-3.5 py-2.5 rounded-2xl border border-purple-400/30 shadow-xl flex items-center gap-2.5 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:border-indigo-300 hover:bg-[#130E38]/95 hover:shadow-2xl hover:shadow-indigo-500/30 group z-20">
+                    <!-- Desktop Floating Badge 3: Education (Middle Right - sm+) -->
+                    <div class="hidden sm:flex absolute top-1/2 -translate-y-1/2 left-[82%] lg:left-[85%] glass-panel px-3.5 py-2.5 rounded-2xl border border-purple-400/30 shadow-xl items-center gap-2.5 cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:-translate-y-1 hover:border-indigo-300 hover:bg-[#130E38]/95 hover:shadow-2xl hover:shadow-indigo-500/30 group z-20">
                         <div class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-bold text-xs transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 shrink-0">
                             <i data-lucide="graduation-cap" class="w-4 h-4 text-indigo-300"></i>
                         </div>
@@ -136,19 +136,53 @@
                     </div>
 
                 </div>
+
+                <!-- Mobile Badges List (< sm - Clean Stack Beneath Avatar) -->
+                <div class="flex sm:hidden flex-col gap-2 mt-5 w-full max-w-[310px] px-2">
+                    <div class="glass-panel px-3.5 py-2 rounded-xl border border-purple-400/25 flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-lg bg-purple-600/30 text-purple-300 flex items-center justify-center font-bold text-xs shrink-0">
+                            <i data-lucide="briefcase" class="w-3.5 h-3.5"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[9px] uppercase font-semibold text-purple-400 tracking-wider">Experience</p>
+                            <p class="text-xs font-bold text-white">NeroSoft Solutions</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel px-3.5 py-2 rounded-xl border border-purple-400/25 flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xs shrink-0">
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[9px] uppercase font-semibold text-emerald-400 tracking-wider">Certified</p>
+                            <p class="text-xs font-bold text-white">IIBA® & PMI Credentials</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel px-3.5 py-2 rounded-xl border border-purple-400/25 flex items-center gap-3">
+                        <div class="w-7 h-7 rounded-lg bg-indigo-500/20 text-indigo-300 flex items-center justify-center font-bold text-xs shrink-0">
+                            <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-indigo-300"></i>
+                        </div>
+                        <div class="text-left">
+                            <p class="text-[9px] uppercase font-semibold text-indigo-400 tracking-wider">Education</p>
+                            <p class="text-xs font-bold text-white">(BSc Hons) in Information Technology</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
 
         <!-- Metric KPI Cards Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-16 pt-8 border-t border-purple-500/15">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mt-12 sm:mt-16 pt-8 border-t border-purple-500/15">
             @foreach($profile['stats'] as $stat)
-                <div class="glass-panel p-5 rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition-all text-center sm:text-left group">
-                    <p class="text-2xl sm:text-3xl font-extrabold gradient-text-purple tracking-tight group-hover:scale-105 transition-transform inline-block">
+                <div class="glass-panel p-4 sm:p-5 rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition-all text-center sm:text-left group">
+                    <p class="text-xl sm:text-3xl font-extrabold gradient-text-purple tracking-tight group-hover:scale-105 transition-transform inline-block">
                         {{ $stat['value'] }}
                     </p>
-                    <h3 class="text-sm font-bold text-white mt-1">{{ $stat['label'] }}</h3>
-                    <p class="text-xs text-purple-300/70 mt-1 leading-snug">{{ $stat['desc'] }}</p>
+                    <h3 class="text-xs sm:text-sm font-bold text-white mt-1">{{ $stat['label'] }}</h3>
+                    <p class="text-[11px] sm:text-xs text-purple-300/70 mt-1 leading-snug">{{ $stat['desc'] }}</p>
                 </div>
             @endforeach
         </div>
