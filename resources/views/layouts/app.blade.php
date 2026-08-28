@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +28,22 @@
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
+    <!-- Anti-FOUC Theme Initializer (Default: Dark Mode) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('portfolio_theme');
+            // Strictly default to dark mode unless user explicitly saved 'light'
+            const theme = (savedTheme === 'light') ? 'light' : 'dark';
+            if (theme === 'light') {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+            } else {
+                document.documentElement.classList.remove('light');
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
+
     <!-- Vite Assets -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -35,7 +51,8 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-[#08040F] text-[#F3F0FF] antialiased selection:bg-purple-600 selection:text-white relative overflow-x-hidden min-h-screen">
+<body x-data="themeManager()" 
+      class="bg-theme text-theme antialiased selection:bg-purple-600 selection:text-white relative overflow-x-hidden min-h-screen transition-colors duration-300">
 
     <!-- Background Grid & Atmospheric Glows -->
     <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
@@ -79,8 +96,34 @@
         @include('components.footer')
     </div>
 
-    <!-- Initialize Lucide Icons after render -->
+    <!-- Theme Manager Alpine Store & Script -->
     <script>
+        function themeManager() {
+            return {
+                isDark: document.documentElement.classList.contains('dark'),
+                init() {
+                    this.isDark = document.documentElement.classList.contains('dark');
+                },
+                toggleTheme() {
+                    this.isDark = !this.isDark;
+                    if (this.isDark) {
+                        document.documentElement.classList.add('dark');
+                        document.documentElement.classList.remove('light');
+                        localStorage.setItem('portfolio_theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        document.documentElement.classList.add('light');
+                        localStorage.setItem('portfolio_theme', 'light');
+                    }
+                    this.$nextTick(() => {
+                        if (window.lucide) {
+                            window.lucide.createIcons();
+                        }
+                    });
+                }
+            };
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });

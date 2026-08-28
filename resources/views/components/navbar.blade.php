@@ -3,9 +3,9 @@
         :class="{ 'glass-nav py-3.5 shadow-lg shadow-purple-950/20': scrolled, 'bg-transparent py-5': !scrolled }"
         class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-4 xl:gap-8">
             <!-- Brand Logo -->
-            <a href="#hero" class="flex items-center gap-3 group">
+            <a href="#hero" class="flex items-center gap-3 group shrink-0">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-700 via-purple-600 to-indigo-500 flex items-center justify-center font-bold text-white shadow-md shadow-purple-900/40 group-hover:scale-105 transition-transform duration-200 border border-purple-400/30">
                     <span class="text-sm tracking-wider">ND</span>
                 </div>
@@ -20,39 +20,96 @@
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-purple-200/80 bg-[#120826]/80 p-1.5 rounded-full border border-purple-500/20 backdrop-blur-md">
-                <a href="#about" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">About</a>
-                <a href="#expertise" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">ERP Modules</a>
-                <a href="#methodology" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Methodology</a>
-                <a href="#projects" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Projects</a>
-                <a href="#experience" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Experience</a>
-                <a href="#credentials" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Credentials</a>
-                <a href="#contact" class="px-3.5 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Contact</a>
+            <!-- Desktop Nav Links (Spaced with buffer) -->
+            <nav class="nav-desktop-bar hidden xl:flex items-center gap-1 text-xs xl:text-[13px] font-medium text-purple-200/80 bg-[#120826]/80 p-1.5 rounded-full border border-purple-500/20 backdrop-blur-md mx-4">
+                <a href="#about" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">About</a>
+                <a href="#expertise" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">ERP Modules</a>
+                <a href="#methodology" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Methodology</a>
+                <a href="#projects" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Projects</a>
+                <a href="#experience" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Experience</a>
+                <a href="#credentials" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Credentials</a>
+                <a href="#contact" class="px-3 py-1.5 rounded-full hover:text-white hover:bg-purple-900/40 transition-all duration-150">Contact</a>
             </nav>
 
-            <!-- CTA Actions -->
-            <div class="hidden sm:flex items-center gap-3">
+            <!-- CTA Actions & Theme Switcher (Desktop Only - >= 1280px) -->
+            <div class="hidden xl:flex items-center gap-3 shrink-0">
                 <a href="{{ route('portfolio.download-cv') }}" 
-                   class="btn-secondary px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 border border-purple-500/30 hover:border-purple-400">
+                   class="btn-secondary px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-2 border border-purple-500/30 hover:border-purple-400 whitespace-nowrap">
                     <i data-lucide="download" class="w-3.5 h-3.5 text-purple-300"></i>
                     <span>Download CV</span>
                 </a>
                 <a href="#contact" 
-                   class="btn-primary px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+                   class="btn-primary px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 whitespace-nowrap">
                     <span>Consultation</span>
                     <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
                 </a>
+
+                <!-- Theme Switcher Button (Upper Right Corner) -->
+                <button @click="toggleTheme()" 
+                        type="button" 
+                        class="p-2.5 rounded-xl border border-purple-500/30 bg-purple-950/30 hover:bg-purple-900/40 text-purple-200 hover:text-white transition-all duration-200 cursor-pointer flex items-center justify-center shadow-sm shrink-0"
+                        :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+                        aria-label="Toggle Dark/Light Mode">
+                    <!-- Sun icon shown in dark mode -->
+                    <template x-if="isDark">
+                        <svg class="w-4 h-4 text-amber-300 transform hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                    </template>
+                    <!-- Moon icon shown in light mode -->
+                    <template x-if="!isDark">
+                        <svg class="w-4 h-4 text-purple-700 transform hover:-rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"></path>
+                        </svg>
+                    </template>
+                </button>
             </div>
 
-            <!-- Mobile Hamburger Button -->
-            <button @click="mobileMenuOpen = !mobileMenuOpen" 
-                    type="button" 
-                    class="lg:hidden p-2 rounded-lg bg-purple-950/60 border border-purple-500/20 text-purple-200 hover:text-white focus:outline-none"
-                    aria-label="Toggle navigation">
-                <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-5 h-5"></i>
-                <i x-show="mobileMenuOpen" x-cloak data-lucide="x" class="w-5 h-5"></i>
-            </button>
+            <!-- Mobile Actions (Theme Toggle + Hamburger) -->
+            <div class="flex items-center gap-2 xl:hidden">
+                <!-- Mobile Theme Toggle Button -->
+                <button @click="toggleTheme()" 
+                        type="button" 
+                        class="p-2 rounded-lg bg-purple-950/60 border border-purple-500/20 text-purple-200 hover:text-white"
+                        :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+                        aria-label="Toggle Dark/Light Mode">
+                    <template x-if="isDark">
+                        <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                    </template>
+                    <template x-if="!isDark">
+                        <svg class="w-4 h-4 text-purple-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 0 1 1-9-9Z"></path>
+                        </svg>
+                    </template>
+                </button>
+
+                <!-- Mobile Hamburger Button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                        type="button" 
+                        class="p-2 rounded-lg bg-purple-950/60 border border-purple-500/20 text-purple-200 hover:text-white focus:outline-none"
+                        aria-label="Toggle navigation">
+                    <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-5 h-5"></i>
+                    <i x-show="mobileMenuOpen" x-cloak data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Drawer Menu -->

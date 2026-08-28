@@ -41,21 +41,21 @@
                 </div>
 
                 <!-- Action CTA Buttons -->
-                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-4 pt-4">
                     <a href="#contact" 
-                       class="btn-primary px-7 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2">
+                       class="btn-primary px-6 sm:px-7 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg shadow-purple-900/30 hover:scale-105 transition-all">
                         <i data-lucide="calendar" class="w-4 h-4"></i>
                         <span>Book ERP Consultation</span>
                     </a>
                     <a href="#projects" 
-                       class="btn-secondary px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2">
+                       class="btn-secondary px-5 sm:px-6 py-3.5 rounded-xl font-semibold text-sm flex items-center gap-2 hover:scale-105 transition-all">
                         <i data-lucide="layers" class="w-4 h-4 text-purple-300"></i>
                         <span>View Case Studies</span>
                     </a>
                     <a href="{{ route('portfolio.download-cv') }}" 
-                       class="px-5 py-3.5 rounded-xl text-xs font-semibold text-purple-300 hover:text-white hover:bg-purple-900/30 transition-all flex items-center gap-2 border border-purple-500/20">
+                       class="btn-secondary px-5 py-3.5 rounded-xl font-semibold text-xs sm:text-sm text-purple-200 hover:text-white flex items-center gap-2 border border-purple-500/30 hover:border-purple-400 hover:scale-105 transition-all">
                         <i data-lucide="file-text" class="w-4 h-4 text-purple-400"></i>
-                        <span>CV (PDF)</span>
+                        <span>Download CV (PDF)</span>
                     </a>
                 </div>
 

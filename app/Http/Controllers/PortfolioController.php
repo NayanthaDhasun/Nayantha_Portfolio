@@ -340,16 +340,16 @@ class PortfolioController extends Controller
             'profile',
             'erpModules',
             'consultingSkills',
-            'projects',
-            'experience',
-            'certifications',
-            'education',
-            'lifecycleSteps'
-        ));
+                    'projects',
+                    'experience',
+                    'certifications',
+                    'education',
+                    'lifecycleSteps'
+                ));
     }
 
     /**
-     * Handle consultation form inquiry.
+     * Handle consultation form inquiry and redirect to WhatsApp.
      */
     public function submitContact(Request $request)
     {
@@ -361,14 +361,23 @@ class PortfolioController extends Controller
             'message' => 'required|string|max:2000',
         ]);
 
-        try {
-            Mail::to('nayanthasr@gmail.com')->send(new ConsultationRequestMail($validated));
-            Log::info('Consultation request dispatched to nayanthasr@gmail.com', ['client' => $validated['name'], 'email' => $validated['email']]);
-        } catch (\Throwable $e) {
-            Log::error('Consultation email dispatch notice: ' . $e->getMessage(), ['data' => $validated]);
+        // Format structured WhatsApp message
+        $text = "👋 *New ERP Consultation Request*\n\n"
+              . "👤 *Client Name:* " . $validated['name'] . "\n"
+              . "📧 *Work Email:* " . $validated['email'] . "\n";
+        
+        if (!empty($validated['organization'])) {
+            $text .= "🏢 *Organization:* " . $validated['organization'] . "\n";
         }
+        
+        $text .= "🎯 *Service Required:* " . $validated['service_type'] . "\n\n"
+              . "📝 *Project Scope:*\n" . $validated['message'];
 
-        return back()->with('success', 'Thank you, ' . e($validated['name']) . '! Your ERP consultation request has been sent to nayanthasr@gmail.com. Nayantha will reach out to you within 24 hours.');
+        $whatsappUrl = 'https://wa.me/94776035192?text=' . urlencode($text);
+
+        Log::info('Consultation inquiry routed to WhatsApp', ['client' => $validated['name'], 'email' => $validated['email']]);
+
+        return redirect()->away($whatsappUrl);
     }
 
     /**

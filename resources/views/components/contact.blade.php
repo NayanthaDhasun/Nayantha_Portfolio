@@ -106,7 +106,7 @@
                         </div>
 
                         <!-- Location Pill -->
-                        <div class="p-3.5 rounded-xl bg-[#0F0720] border border-purple-500/10 flex items-center gap-3 text-xs text-purple-300">
+                        <div class="location-pill p-3.5 rounded-xl border flex items-center gap-3 text-xs">
                             <i data-lucide="map-pin" class="w-4 h-4 text-purple-400 shrink-0"></i>
                             <span>Based in <strong>Colombo, Sri Lanka</strong> (Available for remote and on-site engagements)</span>
                         </div>
@@ -138,7 +138,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('portfolio.contact') }}" method="POST" class="space-y-5">
+                    <form id="consultationForm" action="{{ route('portfolio.contact') }}" method="POST" onsubmit="handleWhatsAppConsultation(event)" class="space-y-5">
                         @csrf
                         
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -191,24 +191,52 @@
                                       class="w-full px-4 py-3 rounded-xl bg-purple-950/60 border border-purple-500/30 text-white placeholder-purple-400/40 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-500/30 text-xs sm:text-sm transition-all">{{ old('message') }}</textarea>
                         </div>
 
-                        <!-- Submit Button -->
+                        <!-- Submit Button with WhatsApp Branding -->
                         <button type="submit" 
-                                class="btn-primary w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 cursor-pointer">
-                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="m22 2-7 20-4-9-9-4Z"></path>
-                                <path d="M22 2 11 13"></path>
+                                style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+                                class="w-full py-4 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/60 hover:brightness-110 transition-all duration-200 cursor-pointer transform hover:-translate-y-0.5">
+                            <svg class="w-5 h-5 fill-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.301-.15-1.781-.879-2.057-.98-.276-.1-.476-.15-.677.15-.2.3-.777.98-.952 1.18-.175.2-.351.226-.652.075-.3-.15-1.267-.467-2.414-1.49-.893-.797-1.496-1.782-1.672-2.083-.175-.3-.019-.463.132-.613.135-.135.301-.351.451-.527.15-.175.2-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.633-.928-2.235-.244-.587-.492-.507-.677-.517-.175-.008-.376-.01-.577-.01-.2 0-.526.075-.802.376-.276.3-1.053 1.03-1.053 2.511 0 1.482 1.078 2.912 1.229 3.113.15.2 2.122 3.241 5.141 4.545.718.31 1.279.496 1.716.635.722.23 1.379.197 1.9.12.58-.087 1.781-.728 2.032-1.431.25-.702.25-1.304.175-1.43-.075-.126-.276-.201-.577-.351zM12.04 21.737h-.008c-1.74 0-3.447-.468-4.945-1.353l-.354-.21-3.676.964.981-3.585-.23-.366a9.98 9.98 0 0 1-1.53-5.267c0-5.524 4.495-10.019 10.025-10.019 2.676 0 5.192 1.043 7.084 2.936a9.96 9.96 0 0 1 2.934 7.085c0 5.525-4.495 10.02-10.281 10.02zm8.508-17.106A11.968 11.968 0 0 0 12.032 1.1C5.438 1.1.066 6.471.064 13.067c0 2.107.55 4.164 1.595 5.976L0 24l5.12-1.343a11.944 11.944 0 0 0 5.717 1.455h.005c6.593 0 11.967-5.372 11.97-11.97 0-3.198-1.246-6.205-3.504-8.471z"/>
                             </svg>
-                            <span>Send Consultation Request</span>
+                            <span>Send Consultation Request via WhatsApp</span>
                         </button>
                         
-                        <p class="text-[11px] text-center text-purple-300/70 pt-1 flex items-center justify-center gap-1.5">
-                            <svg class="w-3.5 h-3.5 text-purple-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        <p class="text-[11px] text-center text-purple-300/80 pt-1 flex items-center justify-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
-                            <span>Consultation inquiries are routed directly to <strong class="text-purple-200">nayanthasr@gmail.com</strong></span>
+                            <span>Your inquiry will open directly in WhatsApp to chat with Nayantha (<strong class="text-emerald-300">+94 77 603 5192</strong>)</span>
                         </p>
                     </form>
+
+                    <script>
+                        function handleWhatsAppConsultation(e) {
+                            const name = document.getElementById('name').value.trim();
+                            const email = document.getElementById('email').value.trim();
+                            const org = document.getElementById('organization').value.trim();
+                            const service = document.getElementById('service_type').value.trim();
+                            const message = document.getElementById('message').value.trim();
+
+                            if (!name || !email || !service || !message) {
+                                return true;
+                            }
+
+                            let text = `👋 *New ERP Consultation Request*\n\n` +
+                                       `👤 *Client Name:* ${name}\n` +
+                                       `📧 *Work Email:* ${email}\n`;
+                            if (org) {
+                                text += `🏢 *Organization:* ${org}\n`;
+                            }
+                            text += `🎯 *Service Required:* ${service}\n\n` +
+                                    `📝 *Project Scope & Requirements:*\n${message}`;
+
+                            const whatsappUrl = `https://wa.me/94776035192?text=${encodeURIComponent(text)}`;
+                            
+                            // Open WhatsApp immediately in new tab
+                            window.open(whatsappUrl, '_blank');
+                            return true;
+                        }
+                    </script>
 
                 </div>
             </div>
