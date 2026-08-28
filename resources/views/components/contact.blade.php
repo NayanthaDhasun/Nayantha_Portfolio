@@ -194,11 +194,14 @@
                         <!-- Submit Button with WhatsApp Branding -->
                         <button type="submit" 
                                 style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
-                                class="w-full py-4 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/60 hover:brightness-110 transition-all duration-200 cursor-pointer transform hover:-translate-y-0.5">
+                                class="w-full px-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-xs sm:text-sm text-white flex items-center justify-center gap-2.5 sm:gap-3 shadow-lg shadow-emerald-950/60 hover:brightness-110 transition-all duration-200 cursor-pointer transform hover:-translate-y-0.5">
                             <svg class="w-5 h-5 fill-white shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.472 14.382c-.301-.15-1.781-.879-2.057-.98-.276-.1-.476-.15-.677.15-.2.3-.777.98-.952 1.18-.175.2-.351.226-.652.075-.3-.15-1.267-.467-2.414-1.49-.893-.797-1.496-1.782-1.672-2.083-.175-.3-.019-.463.132-.613.135-.135.301-.351.451-.527.15-.175.2-.3.301-.501.1-.2.05-.376-.025-.526-.075-.15-.677-1.633-.928-2.235-.244-.587-.492-.507-.677-.517-.175-.008-.376-.01-.577-.01-.2 0-.526.075-.802.376-.276.3-1.053 1.03-1.053 2.511 0 1.482 1.078 2.912 1.229 3.113.15.2 2.122 3.241 5.141 4.545.718.31 1.279.496 1.716.635.722.23 1.379.197 1.9.12.58-.087 1.781-.728 2.032-1.431.25-.702.25-1.304.175-1.43-.075-.126-.276-.201-.577-.351zM12.04 21.737h-.008c-1.74 0-3.447-.468-4.945-1.353l-.354-.21-3.676.964.981-3.585-.23-.366a9.98 9.98 0 0 1-1.53-5.267c0-5.524 4.495-10.019 10.025-10.019 2.676 0 5.192 1.043 7.084 2.936a9.96 9.96 0 0 1 2.934 7.085c0 5.525-4.495 10.02-10.281 10.02zm8.508-17.106A11.968 11.968 0 0 0 12.032 1.1C5.438 1.1.066 6.471.064 13.067c0 2.107.55 4.164 1.595 5.976L0 24l5.12-1.343a11.944 11.944 0 0 0 5.717 1.455h.005c6.593 0 11.967-5.372 11.97-11.97 0-3.198-1.246-6.205-3.504-8.471z"/>
                             </svg>
-                            <span>Send Consultation Request via WhatsApp</span>
+                            <span class="text-center font-bold">
+                                <span class="sm:hidden">Send Request via WhatsApp</span>
+                                <span class="hidden sm:inline">Send Consultation Request via WhatsApp</span>
+                            </span>
                         </button>
                         
                         <p class="text-[11px] text-center text-purple-300/80 pt-1 flex items-center justify-center gap-1.5">
