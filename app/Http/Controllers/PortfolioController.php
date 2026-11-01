@@ -19,7 +19,7 @@ class PortfolioController extends Controller
             'name' => 'Nayantha Dhasun',
             'full_name' => 'Nayantha Dhasun Bandara Ilukpitiya',
             'title' => 'Associate ERP Functional Consultant',
-            'sub_title' => 'Business Systems Analyst & Odoo Specialist',
+            'sub_title' => 'Business Systems Analyst & Odoo Functional Consultant',
             'tagline' => 'Transforming complex business workflows into streamlined, automated ERP solutions with Odoo, AI integrations, and financial precision.',
             'email' => 'nayanthasr@gmail.com',
             'phone' => '+94 77 603 5192',
@@ -27,10 +27,11 @@ class PortfolioController extends Controller
             'linkedin' => 'https://www.linkedin.com/in/nayantha-dhasun-776b5427a',
             'status' => 'Available for ERP Consulting & Digital Transformation Projects',
             'stats' => [
-                ['label' => 'Core ERP Modules', 'value' => '6+', 'desc' => 'Sales, Purchase, Inventory, Accounting, HR, CRM'],
+                ['label' => 'Core ERP Modules', 'value' => '8+', 'desc' => 'Sales, Purchase, Inventory, Accounting, Manufacturing, POS, HR, CRM'],
                 ['label' => 'Academic GPA', 'value' => '3.7 / 4.0', 'desc' => 'HND in Information Systems Management'],
                 ['label' => 'Degree Honours', 'value' => '2nd Upper', 'desc' => 'BSc (Hons) in Information Technology (UWL)'],
-                ['label' => 'Global Credentials', 'value' => '6+', 'desc' => 'IIBA®, PMI, Odoo ERP, Cisco, Oracle, AAT/CMA']
+                ['label' => 'Global Credentials', 'value' => '6+', 'desc' => 'IIBA®, PMI, Odoo ERP, Cisco, Oracle, AAT/CMA'],
+                ['label' => 'Accounting Qualifications', 'value' => 'AAT & CMA', 'desc' => 'AAT Finalist · CMA Operational Level']
             ]
         ];
 
@@ -60,6 +61,34 @@ class PortfolioController extends Controller
                 ]
             ],
             [
+                'id' => 'manufacturing-mrp',
+                'title' => 'Manufacturing (MRP) & Shop Floor',
+                'icon' => 'factory',
+                'description' => 'Multi-level Bills of Materials (BoM), Work Center & Routing configuration, Shop Floor control, Master Production Schedule (MPS), subcontracting workflows, and real-time scrap/cost variance tracking.',
+                'capabilities' => [
+                    'Multi-Level Bills of Materials (BoM)',
+                    'Work Center Capacity & Routing Planning',
+                    'Shop Floor Terminal & Work Orders',
+                    'Master Production Schedule (MPS)',
+                    'Subcontracting & By-Product Management',
+                    'Real-Time Scrap & Cost Variance Tracking'
+                ]
+            ],
+            [
+                'id' => 'point-of-sale',
+                'title' => 'Point of Sale (POS) & Retail',
+                'icon' => 'store',
+                'description' => 'Retail & Restaurant terminal configuration, real-time inventory synchronization, multi-payment method integration, session closing & journal reconciliation, loyalty/promotion engines, and offline-resilient operations.',
+                'capabilities' => [
+                    'Multi-Store Retail & Restaurant Terminals',
+                    'Offline-Resilient POS Order Processing',
+                    'Real-Time Stock Depletion & Valuation',
+                    'Integrated Cash, Card & Multi-Payment Flow',
+                    'End-of-Day Session Closing & Reconciliation',
+                    'Loyalty Programs & Dynamic Price Promotions'
+                ]
+            ],
+            [
                 'id' => 'accounting',
                 'title' => 'Accounting & Invoicing',
                 'icon' => 'receipt',
@@ -85,14 +114,16 @@ class PortfolioController extends Controller
             ],
             [
                 'id' => 'ai-integration',
-                'title' => 'AI & API Integration',
+                'title' => 'AI Diagnostics & XML-RPC APIs',
                 'icon' => 'cpu',
-                'description' => 'Connecting Odoo via XML-RPC & JSON-RPC to external web/mobile apps, AI LLM chatbots (Laravel + OpenRouter), and real-time business intelligence.',
+                'description' => 'Direct Odoo XML-RPC / JSON-RPC database inspection using AI-assisted tools and workflows. Tracing complex transactional anomalies, diagnosing record-level errors, validating master data migrations, and executing automated batch updates.',
                 'capabilities' => [
-                    'Odoo XML-RPC & JSON-RPC REST APIs',
-                    'AI Chatbot for Natural Language ERP Insights',
-                    'Flutter Mobile Sales App Integrations',
-                    'Power BI Automated Financial Pipelines'
+                    'Odoo XML-RPC & JSON-RPC REST Protocols',
+                    'AI-Accelerated Live Database Diagnostics',
+                    'Transactional Anomaly Tracing & Analysis',
+                    'Safe Automated Batch Record Updates & ETL',
+                    'Natural Language ERP Querying via AI Assistants',
+                    'Power BI Automated Financial Ingestion Pipelines'
                 ]
             ]
         ];
@@ -112,11 +143,11 @@ class PortfolioController extends Controller
             [
                 'category' => 'Technical & Analytical Competencies',
                 'skills' => [
-                    ['name' => 'Odoo ERP (Sales, Purchase, Inventory, Accounting, HR)', 'level' => 95],
-                    ['name' => 'Power BI Financial Dashboards & Visualizations', 'level' => 90],
-                    ['name' => 'Laravel & PHP Backend Architecture', 'level' => 85],
-                    ['name' => 'Odoo XML-RPC / JSON-RPC API Integration', 'level' => 88],
-                    ['name' => 'MySQL Relational Database Management', 'level' => 88],
+                    ['name' => 'Odoo ERP (Sales, Purchase, Inventory, Accounts, MRP, POS)', 'level' => 96],
+                    ['name' => 'Odoo XML-RPC API & AI Database Diagnostics', 'level' => 94],
+                    ['name' => 'Power BI Financial Dashboards & Visualizations', 'level' => 92],
+                    ['name' => 'Laravel & PHP Backend Architecture', 'level' => 88],
+                    ['name' => 'MySQL Relational Database Management & ETL', 'level' => 90],
                     ['name' => 'Agile, Scrum & Jira Sprint Facilitation', 'level' => 92]
                 ]
             ]
@@ -349,7 +380,7 @@ class PortfolioController extends Controller
     }
 
     /**
-     * Handle consultation form inquiry and redirect to WhatsApp.
+     * Handle direct contact form inquiry and redirect to WhatsApp.
      */
     public function submitContact(Request $request)
     {
@@ -362,20 +393,20 @@ class PortfolioController extends Controller
         ]);
 
         // Format structured WhatsApp message
-        $text = "👋 *New ERP Consultation Request*\n\n"
-              . "👤 *Client Name:* " . $validated['name'] . "\n"
-              . "📧 *Work Email:* " . $validated['email'] . "\n";
+        $text = "👋 *New Portfolio Inquiry / Direct Contact*\n\n"
+              . "👤 *Name:* " . $validated['name'] . "\n"
+              . "📧 *Email:* " . $validated['email'] . "\n";
         
         if (!empty($validated['organization'])) {
             $text .= "🏢 *Organization:* " . $validated['organization'] . "\n";
         }
         
-        $text .= "🎯 *Service Required:* " . $validated['service_type'] . "\n\n"
-              . "📝 *Project Scope:*\n" . $validated['message'];
+        $text .= "🎯 *Inquiry Focus:* " . $validated['service_type'] . "\n\n"
+              . "📝 *Message / Project Details:*\n" . $validated['message'];
 
         $whatsappUrl = 'https://wa.me/94776035192?text=' . urlencode($text);
 
-        Log::info('Consultation inquiry routed to WhatsApp', ['client' => $validated['name'], 'email' => $validated['email']]);
+        Log::info('Direct portfolio inquiry routed to WhatsApp', ['client' => $validated['name'], 'email' => $validated['email']]);
 
         return redirect()->away($whatsappUrl);
     }
